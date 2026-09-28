@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NÔMADE, UMA AVENTURA BIZARRA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #12151e;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Hero / Header Section */
+        header {
+            background: linear-gradient(rgba(18, 21, 30, 0.75), rgba(18, 21, 30, 0.9)), url('1000213134.jpg') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 3px solid #ffd700;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #ffd700;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.9);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            max-width: 650px;
+            margin-bottom: 35px;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        /* Botão Principal */
+        .cta-btn {
+            background-color: #e63946;
+            color: white;
+            padding: 16px 38px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.5);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(230, 57, 70, 0.7);
+        }
+
+        /* Container de Secção */
+        section {
+            padding: 70px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f1faee;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffd700;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Destaques / Funcionalidades */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: #1e2230;
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 4px solid #ffd700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #b0b5c0;
+            font-size: 1rem;
+        }
+
+        /* Galeria */
+        .grid-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-card {
+            background-color: #1e2230;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid #2a3042;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-card p {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #d1d5db;
+            font-weight: 500;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0b0c10;
+            text-align: center;
+            padding: 35px 20px;
+            color: #7a7a7a;
+            border-top: 1px solid #1e2230;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header>
+        <h1>NÔMADE, UMA AVENTURA BIZARRA</h1>
+        <p>Explora terrenos misteriosos, enfrenta inimigos e vive uma aventura épica num mundo low-poly impressionante!</p>
+        <a href="https://itch.io" target="_blank" class="cta-btn">Joga Já a Beta</a>
+    </header>
+
+    <!-- SECÇÃO DE CARACTERÍSTICAS -->
+    <section id="sobre">
+        <h2 class="section-title">Sobre o Jogo</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Mundo Aberto Vibrante</h3>
+                <p>Explora cenários diversificados, desde montanhas íngremes e ruínas antigas a florestas coloridas e vales verdejantes.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Combate e Magia</h3>
+                <p>Gere a tua estamina e barra de mana para desferir ataques e feitiços devastadores contra os teus oponentes.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Estilo Visual Único</h3>
+                <p>Gráficos em estilo 3D low-poly cuidadosamente trabalhados para oferecer uma estética leve, fluida e marcante.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA DE CAPTURAS -->
+    <section id="galeria">
+        <h2 class="section-title">Galeria de Capturas</h2>
+        <div class="grid-images">
+            <div class="gallery-card">
+                <img src="1000213131.jpg" alt="Exploração em Terreno Aberto">
+                <p>Exploração e Interface de Combate</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000213126.jpg" alt="Vista do Lago e Floresta">
+                <p>Lagos, Pontes e Vegetação Diversificada</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000213135.jpg" alt="Visão Geral do Mundo">
+                <p>Panorâmica do Mapa e Montanhas</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000213133.jpg" alt="Modelos de Personagens">
+                <p>Combate em Arena e Personagens</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000213134.jpg" alt="Vista da Montanha e Ruínas">
+                <p>Ruínas Antigas nas Montanhas</p>
+            </div>
+            <div class="gallery-card">
+                <img src="1000213132.jpg" alt="Campos e Floresta Roxa">
+                <p>Biomas de Campos e Florestas Místicas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Estúdio do Teu Jogo. Todos os direitos reservados.</p>
+        <p>Desenvolvido com paixão para os jogadores de RPG.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
