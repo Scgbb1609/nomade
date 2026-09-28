@@ -1,248 +1,481 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NÔMADE, UMA AVENTURA BIZARRA</title>
+    <title>NÔMADE - O Jogo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background-color: #12151e;
-            color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: #08090c;
+            color: #e2e8f0;
         }
-
-        /* Hero / Header Section */
-        header {
-            background: linear-gradient(rgba(18, 21, 30, 0.75), rgba(18, 21, 30, 0.9)), url('1000213134.jpg') no-repeat center center/cover;
-            height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            border-bottom: 3px solid #ffd700;
+        h1, h2, h3, .font-cinzel {
+            font-family: 'Cinzel', serif;
         }
-
-        header h1 {
-            font-size: 3.5rem;
-            color: #ffd700;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.9);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .text-glow {
+            text-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
         }
-
-        header p {
-            font-size: 1.3rem;
-            max-width: 650px;
-            margin-bottom: 35px;
-            color: #e0e0e0;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        .card-glow:hover {
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.15);
         }
-
-        /* Botão Principal */
-        .cta-btn {
-            background-color: #e63946;
-            color: white;
-            padding: 16px 38px;
-            font-size: 1.25rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.5);
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            background-color: #c1121f;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(230, 57, 70, 0.7);
-        }
-
-        /* Container de Secção */
-        section {
-            padding: 70px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #f1faee;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #ffd700;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Destaques / Funcionalidades */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background-color: #1e2230;
-            padding: 30px;
-            border-radius: 10px;
-            border-top: 4px solid #ffd700;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-card h3 {
-            color: #ffd700;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            color: #b0b5c0;
-            font-size: 1rem;
-        }
-
-        /* Galeria */
-        .grid-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .gallery-card {
-            background-color: #1e2230;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            border: 1px solid #2a3042;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-card p {
-            padding: 15px;
-            text-align: center;
-            font-size: 0.95rem;
-            color: #d1d5db;
-            font-weight: 500;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #0b0c10;
-            text-align: center;
-            padding: 35px 20px;
-            color: #7a7a7a;
-            border-top: 1px solid #1e2230;
-            font-size: 0.9rem;
-        }
-
-        footer p {
-            margin-bottom: 8px;
+        .cover-glow {
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.2);
         }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
-    <!-- CABEÇALHO DA PÁGINA -->
-    <header>
-        <h1>NÔMADE, UMA AVENTURA BIZARRA</h1>
-        <p>Explora terrenos misteriosos, enfrenta inimigos e vive uma aventura épica num mundo low-poly impressionante!</p>
-        <a href="https://itch.io" target="_blank" class="cta-btn">Joga Já a Beta</a>
+    <!-- CANVAS DE FUNDO COM PARTÍCULAS -->
+    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-40 pointer-events-none"></canvas>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-amber-900/30">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-3xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-amber-700">NÔMADE</a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-wider text-slate-300">
+                <a href="#sobre" class="hover:text-amber-400 transition">SOBRE</a>
+                <a href="#galeria" class="hover:text-amber-400 transition">GALERIA</a>
+                <a href="#classes" class="hover:text-amber-400 transition">CLASSES</a>
+                <a href="#requisitos" class="hover:text-amber-400 transition">REQUISITOS</a>
+            </div>
+            <a href="#comunidade" class="bg-amber-500/20 border border-amber-500/50 hover:bg-amber-500 hover:text-black text-amber-300 px-5 py-2.5 rounded-sm font-bold text-xs tracking-widest transition duration-300">
+                JOGAR BETA
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="min-h-screen flex items-center justify-center pt-28 pb-16 relative">
+        <div class="text-center max-w-4xl px-6 flex flex-col items-center">
+            <span class="text-amber-500 text-xs tracking-[0.3em] font-bold uppercase mb-4 block">Em Desenvolvimento • RPG de Ação e Sobrevivência</span>
+            
+            <h1 class="text-6xl md:text-8xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-900 mb-6 text-glow">
+                NÔMADE
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Explore terras esquecidas, domine magias ancestrais e sobreviva em um mundo em constante transformação onde você constrói seu próprio destino.
+            </p>
+
+            <!-- ESPAÇO PARA A CAPA DO JOGO -->
+            <div class="w-full max-w-2xl my-6 relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-700 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                
+                <div class="relative overflow-hidden rounded-xl border border-amber-500/40 bg-slate-900 cover-glow">
+                    <!-- LINK DA CAPA DO JOGO -->
+                    <img 
+                        src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop" 
+                        alt="Capa Oficial do Jogo NÔMADE" 
+                        class="w-full h-[320px] md:h-[420px] object-cover group-hover:scale-105 transition duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 w-full sm:w-auto">
+                <a href="#comunidade" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-400 hover:to-amber-600 text-slate-950 font-bold px-8 py-4 rounded-sm tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-900/40 transition">
+                    <i data-lucide="gamepad-2"></i> ADICIONAR À WISHLIST
+                </a>
+                <a href="#galeria" class="w-full sm:w-auto border border-slate-700 hover:border-amber-500/50 bg-slate-900/50 text-slate-300 px-8 py-4 rounded-sm tracking-wider flex items-center justify-center gap-2 transition">
+                    <i data-lucide="image"></i> VER CAPTURAS
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- SECÇÃO DE CARACTERÍSTICAS -->
-    <section id="sobre">
-        <h2 class="section-title">Sobre o Jogo</h2>
-        <div class="features">
-            <div class="feature-card">
-                <h3>Mundo Aberto Vibrante</h3>
-                <p>Explora cenários diversificados, desde montanhas íngremes e ruínas antigas a florestas coloridas e vales verdejantes.</p>
+    <!-- SOBRE O JOGO -->
+    <section id="sobre" class="py-24 max-w-7xl mx-auto px-6 border-t border-amber-900/20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">SOBRE O JOGO</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Em um planeta desolado por cataclismos antigos, a sobrevivência exige adaptação e coragem. Veja os pilares de NÔMADE:</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition">
+                <i data-lucide="compass" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3 text-slate-100">Mundo Dinâmico</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Tempestades de areia em tempo real remodelam a geografia, descobrindo templos sepultados e alterando rotas de exploração.
+                </p>
             </div>
-            <div class="feature-card">
-                <h3>Combate e Magia</h3>
-                <p>Gere a tua estamina e barra de mana para desferir ataques e feitiços devastadores contra os teus oponentes.</p>
+            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition">
+                <i data-lucide="zap" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3 text-slate-100">Alquimia & Runas</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Forge seu próprio estilo de magia combinando fragmentos rúnicos encontrados em ruínas perigosas espalhadas pelo mapa.
+                </p>
             </div>
-            <div class="feature-card">
-                <h3>Estilo Visual Único</h3>
-                <p>Gráficos em estilo 3D low-poly cuidadosamente trabalhados para oferecer uma estética leve, fluida e marcante.</p>
+            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition">
+                <i data-lucide="tent" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3 text-slate-100">Caravanas & Acampamentos</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Construa bases móveis para viajar com aliados, estocar recursos valiosos e se proteger das ameaças noturnas.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- GALERIA DE CAPTURAS -->
-    <section id="galeria">
-        <h2 class="section-title">Galeria de Capturas</h2>
-        <div class="grid-images">
-            <div class="gallery-card">
-                <img src="1000213131.jpg" alt="Exploração em Terreno Aberto">
-                <p>Exploração e Interface de Combate</p>
+    <section id="galeria" class="py-24 bg-slate-950/80 border-t border-b border-amber-900/20 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">GALERIA DE CAPTURAS</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
+                <p class="text-slate-400 mt-4">Imagens registradas diretamente do motor gráfico do jogo.</p>
             </div>
-            <div class="gallery-card">
-                <img src="1000213126.jpg" alt="Vista do Lago e Floresta">
-                <p>Lagos, Pontes e Vegetação Diversificada</p>
-            </div>
-            <div class="gallery-card">
-                <img src="1000213135.jpg" alt="Visão Geral do Mundo">
-                <p>Panorâmica do Mapa e Montanhas</p>
-            </div>
-            <div class="gallery-card">
-                <img src="1000213133.jpg" alt="Modelos de Personagens">
-                <p>Combate em Arena e Personagens</p>
-            </div>
-            <div class="gallery-card">
-                <img src="1000213134.jpg" alt="Vista da Montanha e Ruínas">
-                <p>Ruínas Antigas nas Montanhas</p>
-            </div>
-            <div class="gallery-card">
-                <img src="1000213132.jpg" alt="Campos e Floresta Roxa">
-                <p>Biomas de Campos e Florestas Místicas</p>
+
+            <!-- GRID DE FOTOS DA GALERIA -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- FOTO 1 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
+                    <img 
+                        src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Deserto Esquecido" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Bioma</span>
+                        <h3 class="text-lg font-bold text-white">Deserto dos Murmúrios</h3>
+                    </div>
+                </div>
+
+                <!-- FOTO 2 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
+                    <img 
+                        src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Combate Mágico" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Combate</span>
+                        <h3 class="text-lg font-bold text-white">Confronto Rúnico</h3>
+                    </div>
+                </div>
+
+                <!-- FOTO 3 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
+                    <img 
+                        src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Acampamento Nômade" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Mecânica</span>
+                        <h3 class="text-lg font-bold text-white">Acampamento Móvel</h3>
+                    </div>
+                </div>
+
+                <!-- FOTO 4 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
+                    <img 
+                        src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Ruínas Antigas" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Exploração</span>
+                        <h3 class="text-lg font-bold text-white">Ruínas do Templo</h3>
+                    </div>
+                </div>
+
+                <!-- FOTO 5 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
+                    <img 
+                        src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Caverna Cristalina" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Mundo</span>
+                        <h3 class="text-lg font-bold text-white">Abismo Rúnico</h3>
+                    </div>
+                </div>
+
+                <!-- FOTO 6 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
+                    <img 
+                        src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1000&auto=format&fit=crop" 
+                        alt="Chefe de Área" 
+                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 p-5">
+                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Inimigos</span>
+                        <h3 class="text-lg font-bold text-white">Guardião de Pedra</h3>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ================================================================= -->
+    <!-- SEÇÃO: CLASSES (ARQUEIRO, GUERREIRO, MAGO)                        -->
+    <!-- ================================================================= -->
+    <section id="classes" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">CLASSES JOGÁVEIS</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
+            <p class="text-slate-400 mt-4">Escolha a classe que melhor se adapta ao seu estilo de jogo.</p>
+        </div>
+
+        <!-- BOTOES DAS CLASSES -->
+        <div class="flex justify-center gap-4 mb-12 flex-wrap">
+            <button onclick="selecionarClasse('arqueiro')" id="btn-arqueiro" class="class-btn active border border-amber-500 bg-amber-500 text-slate-950 font-bold px-6 py-3 rounded-sm transition">
+                Arqueiro
+            </button>
+            <button onclick="selecionarClasse('guerreiro')" id="btn-guerreiro" class="class-btn border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/50 font-bold px-6 py-3 rounded-sm transition">
+                Guerreiro
+            </button>
+            <button onclick="selecionarClasse('mago')" id="btn-mago" class="class-btn border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/50 font-bold px-6 py-3 rounded-sm transition">
+                Mago
+            </button>
+        </div>
+
+        <!-- EXIBIÇÃO DA CLASSE SELECIONADA -->
+        <div id="class-display" class="bg-slate-900/60 border border-amber-900/30 rounded-xl p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
+            <!-- As informações são inseridas dinamicamente via JavaScript -->
+        </div>
+    </section>
+
+    <!-- REQUISITOS DO SISTEMA -->
+    <section id="requisitos" class="py-24 bg-slate-950/80 border-t border-b border-amber-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">REQUISITOS DO SISTEMA</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
+                <p class="text-slate-400 mt-4">Verifique se o seu computador está pronto para rodar NÔMADE.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- REQUISITOS MÍNIMOS -->
+                <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-slate-600"></div>
+                    <h3 class="text-2xl font-bold text-amber-400 mb-6 flex items-center gap-3">
+                        <i data-lucide="cpu"></i> MÍNIMOS
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">SO:</span> Windows 10 (64-bit)
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">Processador:</span> Intel Core i5-8400 / AMD Ryzen 5 2600
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">Memória:</span> 12 GB de RAM
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">Placa de Vídeo:</span> GTX 1060 (6GB) / RX 580 (8GB)
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">DirectX:</span> Versão 12
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-500">Armazenamento:</span> 65 GB disponível (SSD)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- REQUISITOS RECOMENDADOS -->
+                <div class="bg-slate-900/80 border border-amber-900/50 rounded-lg p-8 relative overflow-hidden card-glow">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-amber-500"></div>
+                    <h3 class="text-2xl font-bold text-amber-400 mb-6 flex items-center gap-3">
+                        <i data-lucide="sparkles"></i> RECOMENDADOS
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">SO:</span> Windows 11 (64-bit)
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">Processador:</span> Intel Core i7-12700 / AMD Ryzen 7 5700X
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">Memória:</span> 16 GB de RAM
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">Placa de Vídeo:</span> RTX 3070 (8GB) / RX 6700 XT (12GB)
+                        </li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-500">DirectX:</span> Versão 12
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-500">Armazenamento:</span> 65 GB disponível (NVMe SSD)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO / BETA -->
+    <section id="comunidade" class="py-20 bg-gradient-to-b from-slate-950 to-black border-t border-amber-900/20">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">FAÇA PARTE DO BETA FECHADO</h2>
+            <p class="text-slate-400 mb-8">Inscreva seu e-mail para receber um convite exclusivo e novidades sobre o lançamento.</p>
+            
+            <form onsubmit="alert('Obrigado! Seu e-mail foi cadastrado.'); return false;" class="flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="email" 
+                    placeholder="Seu melhor e-mail" 
+                    required 
+                    class="bg-slate-900 border border-slate-700 focus:border-amber-500 px-5 py-3.5 rounded-sm flex-1 text-slate-200 outline-none transition"
+                >
+                <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-3.5 rounded-sm tracking-wider transition">
+                    INSCREVER-SE
+                </button>
+            </form>
+        </div>
+    </section>
+
     <!-- RODAPÉ -->
-    <footer>
-        <p>&copy; 2026 Estúdio do Teu Jogo. Todos os direitos reservados.</p>
-        <p>Desenvolvido com paixão para os jogadores de RPG.</p>
+    <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-600">
+        <p>© 2026 NÔMADE Game Studio. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- SCRIPTS DE LÓGICA -->
+    <script>
+        // Inicializar os ícones
+        lucide.createIcons();
+
+        // -------------------------------------------------------------
+        // DADOS E FUNÇÃO DE TROCA DAS CLASSES: ARQUEIRO, GUERREIRO, MAGO
+        // -------------------------------------------------------------
+        const classesData = {
+            arqueiro: {
+                nome: "Arqueiro",
+                subtitulo: "Mestre do combate à distância e agilidade insuperável",
+                descricao: "Especialista em abates precisos antes que o inimigo consiga se aproximar. Utiliza arcos rúnicos de longo alcance e dispara flexas energizadas que perfuram armaduras.",
+                habilidade: "Chuva de Flechas: Dispara uma rajada de flechas de fogo para os céus que caem sobre uma ampla área, desacelerando e queimando os alvos.",
+                imagem: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
+                dano: "80%",
+                defesa: "45%",
+                agilidade: "98%"
+            },
+            guerreiro: {
+                nome: "Guerreiro",
+                subtitulo: "Linha de frente implacável e mestre em armas pesadas",
+                descricao: "Especialista em combate corpo a corpo. Com alta vitalidade e armadura pesada, ele avança sem hesitar, absorvendo grandes quantidades de dano e abrindo caminho entre as hordas inimigas.",
+                habilidade: "Golpe Devastador: Salta no ar e esmaga o solo com sua arma, causando uma onda de choque que atordoa e derruba todos os inimigos ao redor.",
+                imagem: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop",
+                dano: "85%",
+                defesa: "95%",
+                agilidade: "40%"
+            },
+            mago: {
+                nome: "Mago",
+                subtitulo: "Mestre dos elementos e dano em área massivo",
+                descricao: "Canaliza as energias ancestrais do mundo de Nômade para invocar feitiços devastadores. Apesar de frágil em combate direto, possui o maior poder destrutivo do jogo.",
+                habilidade: "Tempestade Elemental: Invoca um meteoro de fogo seguido por uma explosão congelante que congela e destrói grupos inteiros de adversários.",
+                imagem: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop",
+                dano: "100%",
+                defesa: "30%",
+                agilidade: "65%"
+            }
+        };
+
+        function selecionarClasse(chaveClasse) {
+            const dados = classesData[chaveClasse];
+            const display = document.getElementById('class-display');
+
+            // Atualizar estilo dos botões
+            document.querySelectorAll('.class-btn').forEach(btn => {
+                btn.className = "class-btn border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/50 font-bold px-6 py-3 rounded-sm transition";
+            });
+            document.getElementById(`btn-${chaveClasse}`).className = "class-btn border border-amber-500 bg-amber-500 text-slate-950 font-bold px-6 py-3 rounded-sm transition";
+
+            // Renderizar dados da classe
+            display.innerHTML = `
+                <div>
+                    <span class="text-amber-500 font-bold text-xs tracking-widest uppercase mb-1 block">${dados.subtitulo}</span>
+                    <h3 class="text-3xl font-bold text-white mb-4">${dados.nome}</h3>
+                    <p class="text-slate-300 text-sm mb-6 leading-relaxed">${dados.descricao}</p>
+                    
+                    <div class="bg-black/40 p-4 border border-amber-900/30 rounded mb-6">
+                        <span class="text-amber-400 font-bold text-xs uppercase block mb-1">Habilidade Especial:</span>
+                        <p class="text-slate-300 text-xs">${dados.habilidade}</p>
+                    </div>
+
+                    <!-- BARRAS DE ATRIBUTO -->
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Ataque</span><span>${dados.dano}</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-500 h-2 rounded" style="width: ${dados.dano}"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Defesa</span><span>${dados.defesa}</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-500 h-2 rounded" style="width: ${dados.defesa}"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span>Agilidade</span><span>${dados.agilidade}</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-500 h-2 rounded" style="width: ${dados.agilidade}"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg h-80 border border-amber-900/30">
+                    <!-- LINK DA IMAGEM DA CLASSE -->
+                    <img src="${dados.imagem}" alt="${dados.nome}" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                </div>
+            `;
+        }
+
+        // Carregar a classe Arqueiro por padrão ao abrir a página
+        selecionarClasse('arqueiro');
+
+        // -------------------------------------------------------------
+        // ANIMACAO DE PARTICULAS NO BACKGROUND
+        // -------------------------------------------------------------
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = Array.from({ length: 70 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 0.5,
+            speedY: -Math.random() * 0.5 - 0.1,
+            opacity: Math.random()
+        }));
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.y += p.speedY;
+                if (p.y < 0) p.y = canvas.height;
+                ctx.fillStyle = `rgba(234, 179, 8, ${p.opacity})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
-
-
-
