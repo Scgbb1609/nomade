@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NÔMADE - O Jogo</title>
+    <title>NÔMADE, UMA AVENTURA BIZARRA - O Jogo</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -20,13 +20,13 @@
             font-family: 'Cinzel', serif;
         }
         .text-glow {
-            text-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+            text-shadow: 0 0 25px rgba(234, 179, 8, 0.4);
         }
         .card-glow:hover {
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.15);
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
         }
         .cover-glow {
-            box-shadow: 0 0 40px rgba(234, 179, 8, 0.2);
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.25);
         }
     </style>
 </head>
@@ -38,7 +38,7 @@
     <!-- NAVEGAÇÃO -->
     <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-amber-900/30">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-3xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-amber-700">NÔMADE</a>
+            <a href="#" class="text-2xl md:text-3xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-amber-700">NÔMADE</a>
             <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-wider text-slate-300">
                 <a href="#sobre" class="hover:text-amber-400 transition">SOBRE</a>
                 <a href="#galeria" class="hover:text-amber-400 transition">GALERIA</a>
@@ -54,36 +54,45 @@
     <!-- HERO SECTION -->
     <header class="min-h-screen flex items-center justify-center pt-28 pb-16 relative">
         <div class="text-center max-w-4xl px-6 flex flex-col items-center">
-            <span class="text-amber-500 text-xs tracking-[0.3em] font-bold uppercase mb-4 block">Em Desenvolvimento • RPG de Ação e Sobrevivência</span>
+            <span class="text-amber-500 text-xs tracking-[0.3em] font-bold uppercase mb-3 block">Desenvolvido por Samuel Luiz Ferreira • SENAI</span>
             
-            <h1 class="text-6xl md:text-8xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-900 mb-6 text-glow">
+            <h1 class="text-4xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-400 to-amber-900 mb-2 text-glow">
                 NÔMADE
             </h1>
+            <p class="text-amber-200/80 font-cinzel tracking-widest text-lg md:text-2xl mb-6">UMA AVENTURA BIZARRA</p>
 
-            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Explore terras esquecidas, domine magias ancestrais e sobreviva em um mundo em constante transformação onde você constrói seu próprio destino.
+            <p class="text-base md:text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Explore ilhas misteriosas, encare desafios low-poly épicos e construa a sua história em um mundo surreal e em constante evolução.
             </p>
 
-            <!-- CAPA DO JOGO -->
-            <div class="w-full max-w-2xl my-6 relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-700 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+            <!-- CAPA OFICIAL DO JOGO -->
+            <div class="w-full max-w-3xl my-4 relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-700 rounded-xl blur opacity-40 group-hover:opacity-70 transition duration-500"></div>
                 
-                <div class="relative overflow-hidden rounded-xl border border-amber-500/40 bg-slate-900 cover-glow">
+                <div class="relative overflow-hidden rounded-xl border border-amber-500/50 bg-slate-900 cover-glow min-h-[250px] flex items-center justify-center">
                     <img 
-                        src="https://i.imgur.com/fmIrMH7.png" 
-                        alt="Capa Oficial do Jogo NÔMADE" 
-                        class="w-full h-[320px] md:h-[420px] object-cover group-hover:scale-105 transition duration-700"
+                        id="hero-cover-img"
+                        src="" 
+                        alt="Capa Oficial Nômade: Uma Aventura Bizarra" 
+                        class="w-full h-auto max-h-[500px] object-cover transition duration-700 hidden"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+                    <div id="upload-placeholder" class="p-8 text-center">
+                        <i data-lucide="image-plus" class="w-12 h-12 text-amber-500 mx-auto mb-3"></i>
+                        <p class="text-sm text-slate-300 mb-4">Selecione a imagem da capa no seu computador:</p>
+                        <label class="cursor-pointer bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-2.5 rounded text-xs tracking-wider transition inline-block">
+                            CARREGAR FOTO
+                            <input type="file" id="cover-input" accept="image/*" class="hidden" onchange="previewImage(event, 'hero-cover-img', 'upload-placeholder')">
+                        </label>
+                    </div>
                 </div>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 w-full sm:w-auto">
                 <a href="#comunidade" class="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-400 hover:to-amber-600 text-slate-950 font-bold px-8 py-4 rounded-sm tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-amber-900/40 transition">
-                    <i data-lucide="gamepad-2"></i> ADICIONAR À WISHLIST
+                    <i data-lucide="gamepad-2"></i> JOGAR AGORA
                 </a>
                 <a href="#galeria" class="w-full sm:w-auto border border-slate-700 hover:border-amber-500/50 bg-slate-900/50 text-slate-300 px-8 py-4 rounded-sm tracking-wider flex items-center justify-center gap-2 transition">
-                    <i data-lucide="image"></i> VER CAPTURAS
+                    <i data-lucide="image"></i> VER GALERIA
                 </a>
             </div>
         </div>
@@ -94,29 +103,29 @@
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">SOBRE O JOGO</h2>
             <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
-            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Em um planeta desolado por cataclismos antigos, a sobrevivência exige adaptação e coragem. Veja os pilares de NÔMADE:</p>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Desenvolvido em estilo Low-Poly 3D, Nômade traz uma jornada de sobrevivência, exploração e batalhas envolventes.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition">
-                <i data-lucide="compass" class="w-10 h-10 text-amber-500 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3 text-slate-100">Mundo Dinâmico</h3>
+            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition card-glow">
+                <i data-lucide="trees" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3 text-slate-100">Mundo Low-Poly</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">
-                    Tempestades de areia em tempo real remodelam a geografia, descobrindo templos sepultados e alterando rotas de exploração.
+                    Visual estilizado único, com florestas floridas, montanhas imponentes e rios integrados perfeitamente ao ecossistema do jogo.
                 </p>
             </div>
-            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition">
-                <i data-lucide="zap" class="w-10 h-10 text-amber-500 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3 text-slate-100">Alquimia & Runas</h3>
+            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition card-glow">
+                <i data-lucide="swords" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3 text-slate-100">Arenas e Ruínas</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">
-                    Forge seu próprio estilo de magia combinando fragmentos rúnicos encontrados em ruínas perigosas espalhadas pelo mapa.
+                    Explore construções antigas com pilares e arenas circulares perfeitas para confrontos contra chefes e hordas de inimigos.
                 </p>
             </div>
-            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition">
-                <i data-lucide="tent" class="w-10 h-10 text-amber-500 mb-6"></i>
-                <h3 class="text-xl font-bold mb-3 text-slate-100">Caravanas & Acampamentos</h3>
+            <div class="bg-slate-900/60 p-8 border border-amber-900/30 rounded-lg hover:border-amber-500/50 transition card-glow">
+                <i data-lucide="flame" class="w-10 h-10 text-amber-500 mb-6"></i>
+                <h3 class="text-xl font-bold mb-3 text-slate-100">Sobrevivência Nômade</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">
-                    Construa bases móveis para viajar com aliados, estocar recursos valiosos e se proteger das ameaças noturnas.
+                    Monte fogueiras, explore acampamentos e prepare suas armas antes de encarar as ameaças em territórios desolados.
                 </p>
             </div>
         </div>
@@ -126,43 +135,49 @@
     <section id="galeria" class="py-24 bg-slate-950/80 border-t border-b border-amber-900/20 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">GALERIA DE CAPTURAS</h2>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">GALERIA DO JOGO</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
-                <p class="text-slate-400 mt-4">Imagens registradas diretamente do motor gráfico do jogo.</p>
+                <p class="text-slate-400 mt-4">Capturas diretas do motor do jogo durante o desenvolvimento.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
-                  <img>https://i.imgur.com/0zPrGZc.jpeg</img>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-5">
-                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Bioma</span>
-                        <h3 class="text-lg font-bold text-white">floresta encantado</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Captura 1 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300 min-h-[200px] flex items-center justify-center">
+                    <img id="galeria-1-img" src="" alt="Vale e Floresta Low-Poly" class="w-full h-64 object-cover hidden"/>
+                    <div id="placeholder-1" class="p-4 text-center">
+                        <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-2 rounded text-xs transition inline-block">
+                            Selecionar Captura 1
+                            <input type="file" accept="image/*" class="hidden" onchange="previewImage(event, 'galeria-1-img', 'placeholder-1')">
+                        </label>
                     </div>
                 </div>
 
-                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop" alt="Combate Mágico" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-5">
-                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Combate</span>
-                        <h3 class="text-lg font-bold text-white">Confronto </h3>
+                <!-- Captura 2 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300 min-h-[200px] flex items-center justify-center">
+                    <img id="galeria-2-img" src="" alt="Ruínas Antigas e Batalha" class="w-full h-64 object-cover hidden"/>
+                    <div id="placeholder-2" class="p-4 text-center">
+                        <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-2 rounded text-xs transition inline-block">
+                            Selecionar Captura 2
+                            <input type="file" accept="image/*" class="hidden" onchange="previewImage(event, 'galeria-2-img', 'placeholder-2')">
+                        </label>
                     </div>
                 </div>
 
-                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1000&auto=format&fit=crop" alt="Acampamento Nômade" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500 filter brightness-90 group-hover:brightness-100"/>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 group-hover:opacity-60 transition duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-5">
-                        <span class="text-amber-400 text-xs font-semibold tracking-wider uppercase block">Mapa</span>
-                        <h3 class="text-lg font-bold text-white">Montanha Rochosa</h3>
+                <!-- Captura 3 -->
+                <div class="group relative overflow-hidden rounded-lg border border-amber-900/30 bg-slate-900 card-glow transition duration-300 min-h-[200px] flex items-center justify-center">
+                    <img id="galeria-3-img" src="" alt="Acampamento e Pilares" class="w-full h-64 object-cover hidden"/>
+                    <div id="placeholder-3" class="p-4 text-center">
+                        <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 px-4 py-2 rounded text-xs transition inline-block">
+                            Selecionar Captura 3
+                            <input type="file" accept="image/*" class="hidden" onchange="previewImage(event, 'galeria-3-img', 'placeholder-3')">
+                        </label>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO DE CLASSES (ARQUEIRO, GUERREIRO, MAGO) -->
+    <!-- SEÇÃO DE CLASSES -->
     <section id="classes" class="py-24 max-w-7xl mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">CLASSES JOGÁVEIS</h2>
@@ -170,9 +185,8 @@
             <p class="text-slate-400 mt-4">Escolha a classe que melhor se adapta ao seu estilo de jogo.</p>
         </div>
 
-        <!-- BOTÕES DAS CLASSES -->
         <div class="flex justify-center gap-4 mb-12 flex-wrap">
-            <button onclick="selecionarClasse('arqueiro')" id="btn-arqueiro" class="class-btn active border border-amber-500 bg-amber-500 text-slate-950 font-bold px-6 py-3 rounded-sm transition">
+            <button onclick="selecionarClasse('arqueiro')" id="btn-arqueiro" class="class-btn border border-amber-500 bg-amber-500 text-slate-950 font-bold px-6 py-3 rounded-sm transition">
                 Arqueiro
             </button>
             <button onclick="selecionarClasse('guerreiro')" id="btn-guerreiro" class="class-btn border border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-500/50 font-bold px-6 py-3 rounded-sm transition">
@@ -183,9 +197,8 @@
             </button>
         </div>
 
-        <!-- ÁREA DA CLASSE -->
         <div id="class-display" class="bg-slate-900/60 border border-amber-900/30 rounded-xl p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
-            <!-- As informações são inseridas dinamicamente via JS -->
+            <!-- Conteúdo dinâmico via JS -->
         </div>
     </section>
 
@@ -195,7 +208,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-slate-100 tracking-wide mb-4">REQUISITOS DO SISTEMA</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
-                <p class="text-slate-400 mt-4">Verifique se o seu computador está pronto para rodar NÔMADE.</p>
+                <p class="text-slate-400 mt-4">Especificações para rodar Nômade com bom desempenho.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -206,11 +219,11 @@
                     </h3>
                     <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">SO:</span> Windows 10 (64-bit)</li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Processador:</span> Intel Core i5-8400 / AMD Ryzen 5 2600</li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Memória:</span> 12 GB de RAM</li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Placa de Vídeo:</span> GTX 1060 (6GB) / RX 580 (8GB)</li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">DirectX:</span> Versão 12</li>
-                        <li class="flex justify-between"><span class="text-slate-500">Armazenamento:</span> 65 GB disponível (SSD)</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Processador:</span> Intel Core i3-8100 / AMD Ryzen 3 1200</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Memória:</span> 8 GB de RAM</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Placa de Vídeo:</span> GTX 1050 (2GB) / RX 560</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">DirectX:</span> Versão 11</li>
+                        <li class="flex justify-between"><span class="text-slate-500">Armazenamento:</span> 15 GB disponível</li>
                     </ul>
                 </div>
 
@@ -220,12 +233,12 @@
                         <i data-lucide="sparkles"></i> RECOMENDADOS
                     </h3>
                     <ul class="space-y-4 text-sm text-slate-300">
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">SO:</span> Windows 11 (64-bit)</li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Processador:</span> Intel Core i7-12700 / AMD Ryzen 7 5700X</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">SO:</span> Windows 10/11 (64-bit)</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Processador:</span> Intel Core i5-10400 / AMD Ryzen 5 3600</li>
                         <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Memória:</span> 16 GB de RAM</li>
-                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Placa de Vídeo:</span> RTX 3070 (8GB) / RX 6700 XT (12GB)</li>
+                        <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">Placa de Vídeo:</span> GTX 1660 Super / RX 5600 XT</li>
                         <li class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-500">DirectX:</span> Versão 12</li>
-                        <li class="flex justify-between"><span class="text-slate-500">Armazenamento:</span> 65 GB disponível (NVMe SSD)</li>
+                        <li class="flex justify-between"><span class="text-slate-500">Armazenamento:</span> 15 GB disponível (SSD)</li>
                     </ul>
                 </div>
             </div>
@@ -235,118 +248,81 @@
     <!-- INSCRICÃO BETA -->
     <section id="comunidade" class="py-20 bg-gradient-to-b from-slate-950 to-black border-t border-amber-900/20">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">FAÇA PARTE DO BETA FECHADO</h2>
-            <p class="text-slate-400 mb-8">Inscreva seu e-mail para receber um convite exclusivo e novidades sobre o lançamento.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">FAÇA PARTE DO TESTE BETA</h2>
+            <p class="text-slate-400 mb-8">Digite seu e-mail para receber as novidades da demo e o link do Play Test.</p>
             
             <form onsubmit="alert('Obrigado! Seu e-mail foi cadastrado.'); return false;" class="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Seu melhor e-mail" required class="bg-slate-900 border border-slate-700 focus:border-amber-500 px-5 py-3.5 rounded-sm flex-1 text-slate-200 outline-none transition">
+                <input type="email" placeholder="Seu e-mail..." required class="bg-slate-900 border border-slate-700 focus:border-amber-500 px-5 py-3.5 rounded-sm flex-1 text-slate-200 outline-none transition">
                 <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-3.5 rounded-sm tracking-wider transition">INSCREVER-SE</button>
             </form>
         </div>
     </section>
 
     <!-- RODAPÉ -->
-    <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-600">
-        <p>© 2026 NÔMADE Game Studio. Todos os direitos reservados.</p>
+    <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-500">
+        <p>© 2026 NÔMADE, UMA AVENTURA BIZARRA • Desenvolvido por Samuel Luiz Ferreira • SENAI</p>
     </footer>
 
-    <!-- LOGICA E ILUSTRAÇÕES EMBUTIDAS DAS CLASSES -->
+    <!-- LÓGICA DAS IMAGENS, CLASSES E CANVAS -->
     <script>
         lucide.createIcons();
 
-        // ARTES VETORIAIS PERSONALIZADAS EM MESMO ESTILO ARTÍSTICO
+        // FUNÇÃO DE CONVERSÃO DE IMAGEM LOCAL
+        function previewImage(event, imgId, placeholderId) {
+            const input = event.target;
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(imgId);
+                    const placeholder = document.getElementById(placeholderId);
+                    img.src = e.target.result;
+                    img.classList.remove('hidden');
+                    if (placeholder) placeholder.classList.add('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // ARTES VETORIAIS EMBUTIDAS PARA AS CLASSES
         const svgArqueiro = `
-        <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(234,179,8,0.2)]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fef08a" />
-                    <stop offset="50%" stop-color="#eab308" />
-                    <stop offset="100%" stop-color="#854d0e" />
-                </linearGradient>
-                <linearGradient id="bgDark" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#0f172a" />
-                    <stop offset="100%" stop-color="#020617" />
-                </linearGradient>
-            </defs>
-            <rect width="400" height="500" rx="16" fill="url(#bgDark)" />
+        <svg viewBox="0 0 400 500" class="w-full h-full object-contain" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" rx="16" fill="#0f172a" />
             <circle cx="200" cy="220" r="140" fill="#eab308" opacity="0.08" />
-            <!-- Silhueta e Detalhes do Arqueiro -->
             <path d="M 200 100 C 180 100, 165 125, 165 155 C 165 180, 180 200, 200 200 C 220 200, 235 180, 235 155 C 235 125, 220 100, 200 100 Z" fill="#1e293b" stroke="#eab308" stroke-width="2"/>
-            <!-- Capuz/Ombreira -->
             <path d="M 140 160 C 160 140, 240 140, 260 160 L 290 280 L 110 280 Z" fill="#0f172a" stroke="#d97706" stroke-width="2" />
             <path d="M 130 260 L 270 260 L 280 440 L 120 440 Z" fill="#1e293b" />
-            <!-- Arco Rúnico Dourado -->
-            <path d="M 280 80 Q 340 250 280 420" fill="none" stroke="url(#goldGlow)" stroke-width="8" stroke-linecap="round" />
+            <path d="M 280 80 Q 340 250 280 420" fill="none" stroke="#eab308" stroke-width="8" stroke-linecap="round" />
             <line x1="280" y1="80" x2="280" y2="420" stroke="#fef08a" stroke-width="1.5" stroke-dasharray="4,2" />
-            <circle cx="280" cy="250" r="8" fill="#fef08a" />
-            <!-- Flecha Energizada -->
             <line x1="120" y1="250" x2="310" y2="250" stroke="#fef08a" stroke-width="4" />
             <polygon points="310,242 330,250 310,258" fill="#fef08a" />
-            <polygon points="120,245 100,250 120,255" fill="#eab308" />
         </svg>`;
 
         const svgGuerreiro = `
-        <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(234,179,8,0.2)]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="goldGlowGuerreiro" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fef08a" />
-                    <stop offset="50%" stop-color="#eab308" />
-                    <stop offset="100%" stop-color="#78350f" />
-                </linearGradient>
-                <linearGradient id="bgDarkGuerreiro" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#0f172a" />
-                    <stop offset="100%" stop-color="#020617" />
-                </linearGradient>
-            </defs>
-            <rect width="400" height="500" rx="16" fill="url(#bgDarkGuerreiro)" />
+        <svg viewBox="0 0 400 500" class="w-full h-full object-contain" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" rx="16" fill="#0f172a" />
             <circle cx="200" cy="220" r="140" fill="#eab308" opacity="0.08" />
-            <!-- Armadura do Guerreiro -->
-            <path d="M 160 110 L 240 110 L 250 180 L 150 180 Z" fill="#334155" stroke="url(#goldGlowGuerreiro)" stroke-width="3" />
+            <path d="M 160 110 L 240 110 L 250 180 L 150 180 Z" fill="#334155" stroke="#eab308" stroke-width="3" />
             <path d="M 120 170 L 280 170 L 290 310 L 110 310 Z" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" />
-            <!-- Capa e Peitoral -->
-            <path d="M 150 190 L 250 190 L 230 430 L 170 430 Z" fill="#0f172a" />
-            <!-- Espada Rúnica Gigante -->
-            <rect x="193" y="60" width="14" height="340" fill="url(#goldGlowGuerreiro)" rx="4" />
+            <rect x="193" y="60" width="14" height="340" fill="#eab308" rx="4" />
             <polygon points="200,30 215,65 185,65" fill="#fef08a" />
-            <rect x="150" y="330" width="100" height="12" fill="#d97706" rx="2" />
-            <circle cx="200" cy="336" r="8" fill="#fef08a" />
-            <!-- Escudo Rúnico -->
-            <polygon points="100,220 160,200 160,340 100,300" fill="#1e293b" stroke="url(#goldGlowGuerreiro)" stroke-width="4" />
         </svg>`;
 
         const svgMago = `
-        <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(234,179,8,0.2)]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="goldGlowMago" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fef08a" />
-                    <stop offset="50%" stop-color="#eab308" />
-                    <stop offset="100%" stop-color="#a16207" />
-                </linearGradient>
-                <linearGradient id="bgDarkMago" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#0f172a" />
-                    <stop offset="100%" stop-color="#020617" />
-                </linearGradient>
-            </defs>
-            <rect width="400" height="500" rx="16" fill="url(#bgDarkMago)" />
+        <svg viewBox="0 0 400 500" class="w-full h-full object-contain" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="500" rx="16" fill="#0f172a" />
             <circle cx="200" cy="220" r="140" fill="#eab308" opacity="0.08" />
-            <!-- Mago Robe e Capuz -->
-            <path d="M 200 80 C 160 80, 140 130, 140 180 L 260 180 C 260 130, 240 80, 200 80 Z" fill="#0f172a" stroke="url(#goldGlowMago)" stroke-width="2" />
+            <path d="M 200 80 C 160 80, 140 130, 140 180 L 260 180 C 260 130, 240 80, 200 80 Z" fill="#0f172a" stroke="#eab308" stroke-width="2" />
             <path d="M 130 180 L 270 180 L 300 440 L 100 440 Z" fill="#1e293b" stroke="#d97706" stroke-width="2" />
-            <!-- Cajado e Orbe Mágico -->
             <line x1="290" y1="70" x2="290" y2="450" stroke="#78350f" stroke-width="8" stroke-linecap="round" />
             <circle cx="290" cy="70" r="22" fill="#fef08a" opacity="0.9" />
-            <circle cx="290" cy="70" r="32" fill="none" stroke="url(#goldGlowMago)" stroke-width="3" stroke-dasharray="6,4" />
-            <!-- Magia Elemental Arcana -->
-            <circle cx="160" cy="260" r="20" fill="#fef08a" opacity="0.6" />
-            <path d="M 120 260 Q 160 220 200 260 T 280 260" fill="none" stroke="url(#goldGlowMago)" stroke-width="3" />
         </svg>`;
 
         const classesData = {
             arqueiro: {
                 nome: "Arqueiro",
-                subtitulo: "Mestre do combate à distância e agilidade insuperável",
-                descricao: "Especialista em abates precisos antes que o inimigo consiga se aproximar. Utiliza arcos rúnicos de longo alcance e dispara flechas energizadas que perfuram armaduras.",
-                habilidade: "Chuva de Flechas: Dispara uma rajada de flechas de fogo para os céus que caem sobre uma ampla área, desacelerando e queimando os alvos.",
+                subtitulo: "Mestre do combate à distância e agilidade",
+                descricao: "Especialista em disparos precisos antes que os inimigos se aproximem. Utiliza arcos rúnicos de longo alcance e dispara flechas energizadas.",
+                habilidade: "Chuva de Flechas: Dispara uma rajada para o alto que cai sobre uma área, desacelerando os inimigos.",
                 svg: svgArqueiro,
                 dano: "80%",
                 defesa: "45%",
@@ -354,9 +330,9 @@
             },
             guerreiro: {
                 nome: "Guerreiro",
-                subtitulo: "Linha de frente implacável e mestre em armas pesadas",
-                descricao: "Especialista em combate corpo a corpo. Com alta vitalidade e armadura pesada, ele avança sem hesitar, absorvendo grandes quantidades de dano e abrindo caminho entre as hordas inimigas.",
-                habilidade: "Golpe Devastador: Salta no ar e esmaga o solo com sua arma, causando uma onda de choque que atordoa e derruba todos os inimigos ao redor.",
+                subtitulo: "Linha de frente e especialista em combate de perto",
+                descricao: "Com alta resistência e armadura, o guerreiro avança diretamente no combate corpo a corpo, absorvendo e infligindo grandes quantidades de dano.",
+                habilidade: "Golpe Devastador: Salta e esmaga o chão, criando uma onda de choque que atordoa alvos próximos.",
                 svg: svgGuerreiro,
                 dano: "85%",
                 defesa: "95%",
@@ -364,9 +340,9 @@
             },
             mago: {
                 nome: "Mago",
-                subtitulo: "Mestre dos elementos e dano em área massivo",
-                descricao: "Canaliza as energias ancestrais do mundo de Nômade para invocar feitiços devastadores. Apesar de frágil em combate direto, possui o maior poder destrutivo do jogo.",
-                habilidade: "Tempestade Elemental: Invoca um meteoro de fogo seguido por uma explosão congelante que congela e destrói grupos inteiros de adversários.",
+                subtitulo: "Mestre elemental com alto dano em área",
+                descricao: "Canaliza as frequências e magias do ambiente para invocar feitiços devastadores. Possui o maior potencial de dano em área do jogo.",
+                habilidade: "Tempestade Elemental: Invoca um grande meteoro de fogo seguido de uma onda de congelamento.",
                 svg: svgMago,
                 dano: "100%",
                 defesa: "30%",
@@ -396,21 +372,15 @@
 
                     <div class="space-y-3">
                         <div>
-                            <div class="flex justify-between text-xs font-bold mb-1">
-                                <span>Ataque</span><span>${dados.dano}</span>
-                            </div>
+                            <div class="flex justify-between text-xs font-bold mb-1"><span>Ataque</span><span>${dados.dano}</span></div>
                             <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-500 h-2 rounded" style="width: ${dados.dano}"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-xs font-bold mb-1">
-                                <span>Defesa</span><span>${dados.defesa}</span>
-                            </div>
+                            <div class="flex justify-between text-xs font-bold mb-1"><span>Defesa</span><span>${dados.defesa}</span></div>
                             <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-500 h-2 rounded" style="width: ${dados.defesa}"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-xs font-bold mb-1">
-                                <span>Agilidade</span><span>${dados.agilidade}</span>
-                            </div>
+                            <div class="flex justify-between text-xs font-bold mb-1"><span>Agilidade</span><span>${dados.agilidade}</span></div>
                             <div class="w-full bg-slate-800 h-2 rounded"><div class="bg-amber-500 h-2 rounded" style="width: ${dados.agilidade}"></div></div>
                         </div>
                     </div>
@@ -422,10 +392,9 @@
             `;
         }
 
-        // Selecionar o Arqueiro por padrão ao iniciar
         selecionarClasse('arqueiro');
 
-        // ANIMAÇÃO DO CANVAS DE FUNDO
+        // CANVAS DE FUNDO
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -436,7 +405,7 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        const particles = Array.from({ length: 70 }, () => ({
+        const particles = Array.from({ length: 60 }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             size: Math.random() * 2 + 0.5,
